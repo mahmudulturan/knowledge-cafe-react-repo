@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Blogs from './Components/Blogs/Blogs'
 import Bookmarks from './Components/Bookmarks/Bookmarks'
 import Header from './Components/Header/Header'
+import { addItemToLS, addItemToLSNum, getDataFromLS, getDataFromLSNum, removeItemFromLS } from './Utilities/localStorage'
 
 function App() {
   const [readingTime, setReadingTime] = useState(0)
@@ -13,13 +14,27 @@ function App() {
     const newBookmarks = [...bookmarks, title];
     setBookmarks(newBookmarks);
     setClicked(!clicked)
+    addItemToLS(title)
   }
 
   const handlerMarkAsRead = (time, title) =>{
-    setReadingTime(readingTime + time)
+    const newReadingTime = readingTime + time;
+    setReadingTime(newReadingTime)
     const remainingBookmarks = bookmarks.filter(bookmark => bookmark !== title)
     setBookmarks(remainingBookmarks);
+    removeItemFromLS(title)
+    addItemToLSNum(time)
   }
+
+  useEffect(()=>{
+    const lsData = getDataFromLS()
+    setBookmarks(lsData)
+  },[])
+
+  useEffect(()=>{
+    const lsData = getDataFromLSNum();
+    setReadingTime(lsData);
+  },[])
   return (
     <>
       <div className='md:w-3/4 mx-auto px-1'>

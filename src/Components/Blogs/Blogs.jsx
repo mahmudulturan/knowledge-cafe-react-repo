@@ -12,9 +12,9 @@ const Blogs = ({ handlerMarkAsRead, handlerBookmark, clicked }) => {
   }, []);
   return (
     <div className="md:w-2/3">
-      {blogs.map((blog, idx) => (
+      {blogs.map((blog) => (
         <Blog blog={blog}
-        handlerMarkAsRead={handlerMarkAsRead} handlerBookmark={handlerBookmark} clicked={clicked} key={idx}></Blog>
+        handlerMarkAsRead={handlerMarkAsRead} handlerBookmark={handlerBookmark} clicked={clicked} key={blog.id}></Blog>
       ))}
     </div>
   );

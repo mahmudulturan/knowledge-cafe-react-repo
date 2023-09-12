@@ -3,7 +3,7 @@ import { BsBookmarks, BsBookmarksFill } from 'react-icons/bs';
 
 
 const Blog = ({blog, handlerMarkAsRead, handlerBookmark, clicked}) => {
-    const {cover_img, title, author_img, author, posted_date, reading_time, hashtags} = blog;
+    const {cover_img, title, author_img, author, posted_date, reading_time, hashtags, id} = blog;
 
     return (
         <div className=' mb-9 border-b-2 pb-4'>
@@ -19,7 +19,7 @@ const Blog = ({blog, handlerMarkAsRead, handlerBookmark, clicked}) => {
                 </div>
                 <div className='flex items-center md:gap-2'>
                     <h4 className="font-semibold text-xl text-[#11111199]">{reading_time} min read</h4>
-                    <button onClick={()=> {handlerBookmark(title)}}> {clicked? <BsBookmarksFill></BsBookmarksFill> : <BsBookmarks></BsBookmarks>} </button>
+                    <button onClick={()=> {handlerBookmark(title,id)}}> {clicked? <BsBookmarksFill></BsBookmarksFill> : <BsBookmarks></BsBookmarks>} </button>
                 </div>
             </div>
             <h1 className="md:text-4xl text-2xl font-bold">{title}</h1>
