@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BsBookmarks, BsBookmarksFill } from 'react-icons/bs';
 
 
-const Blog = ({blog}) => {
+const Blog = ({blog, handlerMarkAsRead}) => {
     const {cover_img, title, author_img, author, posted_date, reading_time, hashtags} = blog;
     const [clicked, setClicked] = useState(false)
     const handlerClicked = ()=>{
@@ -11,7 +11,7 @@ const Blog = ({blog}) => {
     }
 
     return (
-        <div className=' my-9'>
+        <div className=' mb-9 border-b-2 pb-4'>
             <img className="w-full rounded-lg" src={cover_img} alt={`cover imaga bout ${title}`} />
             <div className=" space-y-4">
             <div className="flex justify-between mt-8">
@@ -23,7 +23,7 @@ const Blog = ({blog}) => {
                     </div>
                 </div>
                 <div className='flex items-center gap-2'>
-                    <h4 className="font-semibold text-xl text-[#11111199]">{reading_time} read</h4>
+                    <h4 className="font-semibold text-xl text-[#11111199]">{reading_time} min read</h4>
                     <button onClick={handlerClicked}> {clicked? <BsBookmarks></BsBookmarks> : <BsBookmarksFill></BsBookmarksFill>} </button>
                 </div>
             </div>
@@ -31,14 +31,15 @@ const Blog = ({blog}) => {
             {
                 hashtags.map((hashtag,indx) => <a className='text-xl text-blue-600 font-semibold' key={indx}>{hashtag} </a>)
             } <br />
-            <button className='text-xl text-blue-600 font-semibold'>Mark As Read</button>
+            <button onClick={()=> handlerMarkAsRead(reading_time)} className='text-xl text-blue-600 font-semibold'>Mark As Read</button>
             </div>
         </div>
     );
 };
 
 Blog.propTypes = {
-    blog: PropTypes.object.isRequired
+    blog: PropTypes.object.isRequired,
+    handlerMarkAsRead: PropTypes.func.isRequired,
 }
 
 export default Blog;
