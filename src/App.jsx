@@ -7,20 +7,25 @@ import Header from './Components/Header/Header'
 function App() {
   const [readingTime, setReadingTime] = useState(0)
   const [bookmarks, setBookmarks] = useState([])
+  const [clicked, setClicked] = useState(false)
+
   const handlerBookmark = (title) => {
     const newBookmarks = [...bookmarks, title];
     setBookmarks(newBookmarks);
+    setClicked(!clicked)
   }
 
-  const handlerMarkAsRead = (time) =>{
+  const handlerMarkAsRead = (time, title) =>{
     setReadingTime(readingTime + time)
+    const remainingBookmarks = bookmarks.filter(bookmark => bookmark !== title)
+    setBookmarks(remainingBookmarks);
   }
   return (
     <>
-      <div className='w-3/4 mx-auto'>
+      <div className='md:w-3/4 mx-auto px-1'>
         <Header></Header>
-        <div className='flex gap-6 justify-center'>
-          <Blogs handlerMarkAsRead={handlerMarkAsRead} handlerBookmark={handlerBookmark}></Blogs>
+        <div className='md:flex gap-6 justify-center'>
+          <Blogs handlerMarkAsRead={handlerMarkAsRead} clicked={clicked} handlerBookmark={handlerBookmark}></Blogs>
           <Bookmarks bookmarks={bookmarks} readingTime={readingTime}></Bookmarks>
         </div>
 

@@ -1,5 +1,6 @@
 [
     {
+      "id": 1,
       "title": "10 Tips for Efficient Coding",
       "cover_img": "https://i.ibb.co/KGNT7m3/first-Cover.jpg",
       "author_img": "https://i.ibb.co/VvLNdLL/boy1.png",
@@ -8,7 +9,8 @@
       "reading_time": 5,
       "hashtags": ["#technology", "#coding", "#webdevelopment"]
     },
-    {
+    { 
+      "id": 2,
       "title": "Exploring the World's Most Beautiful Places",
       "cover_img": "https://i.ibb.co/1KtBrGb/second-Cover.jpg",
       "author_img": "https://i.ibb.co/7rFSJx5/girl1.jpg",
@@ -17,7 +19,8 @@
       "reading_time": 8,
       "hashtags": ["#travel", "#adventure", "#photography"]
     },
-    {
+    { 
+      "id": 3,
       "title": "Achieving a Healthy Lifestyle: Nutrition Tips",
       "cover_img": "https://i.ibb.co/8Y5yTSZ/third-Cover.jpg",
       "author_img": "https://i.ibb.co/vwGwnhT/boy2.jpg",
@@ -27,6 +30,7 @@
       "hashtags": ["#health", "#nutrition", "#wellness"]
     },
     {
+      "id": 4,
       "title": "The Wonders of the Universe: A Journey into Space",
       "cover_img": "https://i.ibb.co/tX17b4G/fourth-Cover.jpg",
       "author_img": "https://i.ibb.co/Sn7zB4q/girl2.jpg",

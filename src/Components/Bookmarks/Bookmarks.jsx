@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
-
 const Bookmarks = ({readingTime, bookmarks}) => {
-    
     return (
-        <div className="w-1/3">
-            <div className='fixed'>
+        <div className="md:w-1/3">
+            <div className='md:fixed'>
             <div className="bg-[#6047EC1A] py-5 mb-6 px-12 rounded-lg border-2 border-solid border-[#6047EC]">
                 <h4 className="text-2xl font-bold text-[#6047EC]">Spent time on read : {readingTime} min</h4>
             </div>
