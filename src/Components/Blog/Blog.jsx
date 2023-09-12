@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { BsBookmarks, BsBookmarksFill } from 'react-icons/bs';
 
 
-const Blog = ({blog, handlerMarkAsRead}) => {
+const Blog = ({blog, handlerMarkAsRead, handlerBookmark}) => {
     const {cover_img, title, author_img, author, posted_date, reading_time, hashtags} = blog;
     const [clicked, setClicked] = useState(false)
     const handlerClicked = ()=>{
@@ -24,7 +24,7 @@ const Blog = ({blog, handlerMarkAsRead}) => {
                 </div>
                 <div className='flex items-center gap-2'>
                     <h4 className="font-semibold text-xl text-[#11111199]">{reading_time} min read</h4>
-                    <button onClick={handlerClicked}> {clicked? <BsBookmarks></BsBookmarks> : <BsBookmarksFill></BsBookmarksFill>} </button>
+                    <button onClick={()=> {handlerBookmark(title)}}> {clicked? <BsBookmarks></BsBookmarks> : <BsBookmarksFill></BsBookmarksFill>} </button>
                 </div>
             </div>
             <h1 className="text-4xl font-bold">{title}</h1>
@@ -40,6 +40,7 @@ const Blog = ({blog, handlerMarkAsRead}) => {
 Blog.propTypes = {
     blog: PropTypes.object.isRequired,
     handlerMarkAsRead: PropTypes.func.isRequired,
+    handlerBookmark: PropTypes.func.isRequired,
 }
 
 export default Blog;
